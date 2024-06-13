@@ -274,7 +274,7 @@ class PtTransformer(nn.Module):
                     'arch': backbone_arch,
                     'scale_factor': scale_factor,
                     'with_ln' : embd_with_ln,
-                    mha_win_size': self.mha_win_size,
+                    'mha_win_size': self.mha_win_size,
                     'scale_factor' : scale_factor,
                     'with_ln' : embd_with_ln,
                     'attn_pdrop' : 0.0,

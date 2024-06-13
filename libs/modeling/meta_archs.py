@@ -263,7 +263,7 @@ class PtTransformer(nn.Module):
                     'path_pdrop' : self.train_droppath,
                     'use_abs_pe' : use_abs_pe,
                     'use_rel_pe' : use_rel_pe
-                }
+                })
         elif backbone_type == 'mamba':
             self.backbone = make_backbone(
                 'mamba',

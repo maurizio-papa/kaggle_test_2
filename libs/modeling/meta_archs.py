@@ -264,6 +264,25 @@ class PtTransformer(nn.Module):
                     'use_abs_pe' : use_abs_pe,
                     'use_rel_pe' : use_rel_pe
                 }
+        elif backbone_type == 'mamba':
+            self.backbone = make_backbone(
+                'mamba',
+                **{
+                    'n_in': input_dim,
+                    'n_embd': embd_dim,
+                    'n_embd_ks': embd_kernel_size,
+                    'arch': backbone_arch,
+                    'scale_factor': scale_factor,
+                    'with_ln' : embd_with_ln,
+                    mha_win_size': self.mha_win_size,
+                    'scale_factor' : scale_factor,
+                    'with_ln' : embd_with_ln,
+                    'attn_pdrop' : 0.0,
+                    'proj_pdrop' : self.train_dropout,
+                    'path_pdrop' : self.train_droppath,
+                    'use_abs_pe' : use_abs_pe,
+                    'use_rel_pe' : use_rel_pe
+                }
             )
         else:
             self.backbone = make_backbone(

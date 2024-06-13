@@ -292,7 +292,9 @@ class MambaBackbone(nn.Module):
         self.relu = nn.ReLU(inplace=True)
         self.scale_factor = scale_factor
         self.mha_win_size = mha_win_size
-
+        self.use_abs_pe = use_abs_pe
+        self.use_rel_pe = use_rel_pe
+      
         # embedding network using convs
         self.embd = nn.ModuleList()
         self.embd_norm = nn.ModuleList()

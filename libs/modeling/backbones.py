@@ -283,6 +283,8 @@ class MambaBackbone(nn.Module):
         attn_pdrop = 0.0,      # dropout rate for the attention map
         proj_pdrop = 0.0,      # dropout rate for the projection / MLP
         path_pdrop = 0.0,      # droput rate for drop path
+        use_abs_pe = False,    # use absolute position embedding
+        use_rel_pe = False,    # use relative position embedding
     ):
         super().__init__()
         assert len(arch) == 3
@@ -322,7 +324,8 @@ class MambaBackbone(nn.Module):
                     proj_pdrop=proj_pdrop,
                     path_pdrop=path_pdrop,
                     mha_win_size=self.mha_win_size[0],
-                    use_rel_pe=self.use_rel_pe))
+                    use_rel_pe=self.use_rel_pe,
+                    use_abs_pe = self.use_abs_pe))
         
         # main branch using transformer with pooling
         self.branch = nn.ModuleList()

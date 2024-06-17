@@ -319,14 +319,14 @@ class MambaBackbone(nn.Module):
         self.stem = nn.ModuleList()
         for idx in range(arch[1]):
             self.stem.append(MaskMambaBlock(n_embd))
-        self.stem.append(TransformerBlock(
-                    n_embd, n_head,
-                    n_ds_strides=(1, 1),
-                    attn_pdrop=attn_pdrop,
-                    proj_pdrop=proj_pdrop,
-                    path_pdrop=path_pdrop,
-                    mha_win_size=self.mha_win_size[0],
-                    use_rel_pe=self.use_rel_pe))
+        #self.stem.append(TransformerBlock(
+        #            n_embd, n_head,
+        #            n_ds_strides=(1, 1),
+        #            attn_pdrop=attn_pdrop,
+        #            proj_pdrop=proj_pdrop,
+        #            path_pdrop=path_pdrop,
+        #            mha_win_size=self.mha_win_size[0],
+        #            use_rel_pe=self.use_rel_pe))
       
         # main branch using transformer with pooling
         self.branch = nn.ModuleList()
